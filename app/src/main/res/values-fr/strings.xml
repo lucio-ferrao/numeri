@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="play">Jouer</string>
+    <string name="help">Aide</string>
+    <string name="clear">Effacer</string>
+    <string name="next">Solution ou nouveau casse-tête</string>
+    <string-array name="help_text">
+        <item>Bienvenue dans le casse-tête Numeri.</item>
+        <item>L\'objectif du jeu est de dessiner une seule ligne fermée, respectant tous les chiffres.</item>
+        <item>Chaque chiffre indique le nombre de côtés de la ligne qui doivent être adjacents à ce chiffre.</item>
+        <item>Touchez une case, ou glissez sur plusieurs, pour inverser leurs côtés.</item>
+        <item>Appuyez sur \'&gt;\' pour voir la solution, ou pour créer un nouveau casse-tête. Appuyez sur \'&lt;\' pour recommencer le casse-tête.</item>
+        <item>Retournez le téléphone pour révéler tous les chiffres.</item>
+        <item>Cherchez Slitherlink sur Wikipédia pour en savoir plus.</item>
+        <item>Bon jeu !</item>
+    </string-array>
+</resources>

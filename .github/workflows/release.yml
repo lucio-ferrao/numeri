@@ -1,0 +1,42 @@
+# Ao criar uma etiqueta vX.Y, compila, testa e publica o APK de release assinado numa versão do GitHub.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Plataforma Android 37
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-37.0" "build-tools;37.0.0" > /dev/null
+
+      - name: Chave de assinatura
+        run: echo "${{ secrets.NUMERI_KEYSTORE_BASE64 }}" | base64 -d > "$RUNNER_TEMP/release.jks"
+
+      - name: Testes e APK
+        env:
+          NUMERI_KEYSTORE: ${{ runner.temp }}/release.jks
+          NUMERI_KEYSTORE_PASSWORD: ${{ secrets.NUMERI_KEYSTORE_PASSWORD }}
+        run: ./gradlew testDebugUnitTest assembleRelease
+
+      - name: Publicar
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          apk="numeri-${GITHUB_REF_NAME#v}.apk"
+          cp app/build/outputs/apk/release/app-release.apk "$apk"
+          gh release create "$GITHUB_REF_NAME" "$apk" --title "Numeri ${GITHUB_REF_NAME#v}" --generate-notes

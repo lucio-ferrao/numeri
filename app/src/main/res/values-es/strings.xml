@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="play">Jugar</string>
+    <string name="help">Ayuda</string>
+    <string name="clear">Limpiar</string>
+    <string name="next">Solución o nuevo puzzle</string>
+    <string-array name="help_text">
+        <item>Bienvenido al juego Numeri.</item>
+        <item>El objetivo del juego es dibujar una única línea cerrada que deje todos los dígitos válidos (blancos).</item>
+        <item>Cada dígito indica el número de segmentos de la línea que deben rodear ese dígito.</item>
+        <item>Toca una casilla, o arrastra el dedo por varias, para cambiar sus lados.</item>
+        <item>Utiliza \'&gt;\' para ver la solución, o para iniciar un nuevo puzzle. Utiliza \'&lt;\' para limpiar el puzzle.</item>
+        <item>Puedes poner el teléfono boca abajo para destapar los dígitos omitidos en la cuadrícula.</item>
+        <item>Busca técnicas de juego por \'Slitherlink\' en la Wikipedia.</item>
+        <item>¡Buen juego!</item>
+    </string-array>
+</resources>
